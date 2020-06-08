@@ -11,12 +11,14 @@ namespace MovieWeb.Models
     {
         [DisplayName("Titel")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Titel verplicht!")]
-        [MaxLength(20, ErrorMessage = "Maximum 20 karakters!")]
+        [MaxLength(30, ErrorMessage = "Maximum 30 karakters!")]
         public string Title { get; set; }
         [DisplayName("Omschrijving")]
+        [MaxLength(250, ErrorMessage = "Maximum 250 karakters!")]
         public string Description { get; set; }
         [DisplayName("Genre")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Genre verplicht!")]
+        [MaxLength(30, ErrorMessage = "Maximum 30 karakters!")]
         public string Genre { get; set; }
         [DisplayName("Release Datum")]
         [DataType(DataType.DateTime)]
