@@ -1,0 +1,9 @@
+﻿@model IEnumerable<MovieListViewModel>
+
+<h1>Movie List</h1>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Title</li>
+    }
+</ul>
