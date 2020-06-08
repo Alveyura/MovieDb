@@ -4,6 +4,7 @@
 <ul>
     @foreach (var item in Model)
     {
-        <li>@item.Title</li>
+        <li><a asp-controller="movie" asp-action="detail/?Id=@item.Id">@item.Title</a></li>
     }
 </ul>
+<p><a asp-controller="movie" asp-action="create">create</a></p>

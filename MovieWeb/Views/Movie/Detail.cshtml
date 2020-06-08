@@ -1,4 +1,4 @@
-﻿@model MovieWeb.Models.MovieDetailViewModel
+﻿@model MovieWeb.Models.MovieDetailViewModel;
 
 <strong>Title</strong>
 <p>@Model.Title</p>
@@ -8,5 +8,8 @@
 
 <strong>Genre</strong>
 <p>@Model.Genre</p>
+
+<strong>Release Date</strong>
+<p>@Model.ReleaseDate.ToShortDateString() </p>
 
 
