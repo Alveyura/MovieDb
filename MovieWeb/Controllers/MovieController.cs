@@ -50,6 +50,10 @@ namespace MovieWeb.Controllers
         [HttpPost]
         public IActionResult Create(MovieCreateViewModel movie)
         {
+            if (!TryValidateModel(movie))
+            {
+                return View(movie);
+            }
             Movie newMovie = new Movie()
             {
                 Title = movie.Title,
