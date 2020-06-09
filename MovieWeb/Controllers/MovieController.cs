@@ -107,6 +107,27 @@ namespace MovieWeb.Controllers
 
         }
 
+        public IActionResult Delete(int id)
+        {
+            Movie movieFromDb = _movieDatabase.GetMovie(id);
+
+            MovieDeleteViewModel movie = new MovieDeleteViewModel()
+            {
+                Id = movieFromDb.Id,
+                Title = movieFromDb.Title,
+            };
+
+            return View(movie);
+        }
+
+        [HttpPost]
+        public IActionResult ConfirmDelete(int id)
+        {
+            _movieDatabase.Delete(id);
+
+            return RedirectToAction("Index");
+        }
+
         //public IActionResult Detail()
         //{
         //    MovieDetailViewModel lionKing = new MovieDetailViewModel()

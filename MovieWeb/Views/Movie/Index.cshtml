@@ -3,20 +3,25 @@
 <h1>Movie List</h1>
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @item.Title
-        </td>
-        <td>
-            <a asp-controller="Movie"
-               asp-action="Detail"
-               asp-route-id="@item.Id">Detail</a>
-        </td>
-        <td>
-            <a asp-controller="Movie"
-               asp-action="Edit"
-               asp-route-id="@item.Id">Edit</a>
-        </td>
-    </tr>
+        <tr>
+            <td>
+                @item.Title
+            </td>
+            <td>
+                <a asp-controller="Movie"
+                   asp-action="Detail"
+                   asp-route-id="@item.Id">Detail</a>
+            </td>
+            <td>
+                <a asp-controller="Movie"
+                   asp-action="Edit"
+                   asp-route-id="@item.Id">Edit</a>
+            </td>
+            <td>
+                <a asp-controller="Movie"
+                   asp-action="Delete"
+                   asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
     }
 <p><a asp-controller="movie" asp-action="create">create</a></p>
