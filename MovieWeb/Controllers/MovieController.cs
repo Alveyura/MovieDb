@@ -67,6 +67,46 @@ namespace MovieWeb.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Movie movieFromDb = _movieDatabase.GetMovie((int)id);
+
+            MovieEditViewModel movie = new MovieEditViewModel()
+            {
+                Title = movieFromDb.Title,
+                Genre = movieFromDb.Genre,
+                Description = movieFromDb.Description,
+                ReleaseDate = movieFromDb.ReleaseDate
+            };
+
+            return View(movie);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, MovieEditViewModel movie)
+        {
+            if (!TryValidateModel(movie))
+            {
+                return View(movie);
+            }
+
+            _movieDatabase.Update(id, new Movie()
+            {
+                Title = movie.Title,
+                Genre = movie.Genre,
+                Description = movie.Description,
+                ReleaseDate = movie.ReleaseDate
+            });
+
+            return RedirectToAction("Detail", new { Id = id });
+
+        }
+
         //public IActionResult Detail()
         //{
         //    MovieDetailViewModel lionKing = new MovieDetailViewModel()

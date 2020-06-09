@@ -1,10 +1,22 @@
 ﻿@model IEnumerable<MovieListViewModel>
 
 <h1>Movie List</h1>
-<ul>
     @foreach (var item in Model)
     {
-        <li><a asp-controller="movie" asp-action="detail" asp-route-id="@item.Id">@item.Title</a></li>
+    <tr>
+        <td>
+            @item.Title
+        </td>
+        <td>
+            <a asp-controller="Movie"
+               asp-action="Detail"
+               asp-route-id="@item.Id">Detail</a>
+        </td>
+        <td>
+            <a asp-controller="Movie"
+               asp-action="Edit"
+               asp-route-id="@item.Id">Edit</a>
+        </td>
+    </tr>
     }
-</ul>
 <p><a asp-controller="movie" asp-action="create">create</a></p>
